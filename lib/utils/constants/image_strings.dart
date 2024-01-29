@@ -7,4 +7,10 @@ class TImages {
   static const String google = "";
   static const String facebook = "";
 
+
+  // ----- OnBoardingImages ------- //
+  static const String onBoardingImage1 = "assets/images/onBoarding/onBoarding1.gif";
+  static const String onBoardingImage2 = "assets/images/onBoarding/onBoarding2.gif";
+  static const String onBoardingImage3 = "assets/images/onBoarding/onBoarding3.gif";
+
 }

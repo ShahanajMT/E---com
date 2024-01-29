@@ -19,21 +19,35 @@ dependencies:
   iconsax: null
   intl: ^0.19.0
   logger: ^2.0.2+1
+  smooth_page_indicator: ^1.1.0
   url_launcher: ^6.2.4
 
 dev_dependencies:
   flutter_lints: ^2.0.0
+
+  flutter_native_splash: null
   flutter_test:
     sdk: flutter
 
-flutter:
+native_splash:
+  color: "#FFFFFF"
+  color_dark: "#272727"
+  image: assets/logos/logo_lightmide.png
+  image_dark: assets/logos/logo_darkmode.png
 
+  android_12:
+    color: "#FFFFFF"
+    color_dark: "#272727"
+    image: assets/logos/logo_lightmide.png
+    image_dark: assets/logos/logo_darkmode.png
+
+flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/icons/
-    - assets/images/
+    - assets/images/onBoarding/
     - assets/logos/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
