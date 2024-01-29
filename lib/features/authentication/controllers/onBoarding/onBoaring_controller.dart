@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/state_manager.dart';
+import 'package:tstore/features/authentication/screens/login/loginPage.dart';
 
 class OnBoardingController extends GetxController {
   static OnBoardingController get instance => Get.find();
@@ -29,7 +30,7 @@ class OnBoardingController extends GetxController {
 
   void nextPage() {
     if (currentPageIndex.value == 2) {
-     // Get.to(LoginPage())
+      Get.offAll(const LogInPage());
      log('NextPage');
     } else {
       int page = currentPageIndex.value + 1;
