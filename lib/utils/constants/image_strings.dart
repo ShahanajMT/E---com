@@ -4,8 +4,8 @@ class TImages {
   static const String lightAppLogo = "assets/logos/logo_lightmide.png";
 
   // ----- Social Logos ----- //
-  static const String google = "assets/logos/logo_darkmode.png";
-  static const String facebook = "assets/logos/logo_darkmode.png";
+  static const String google = "assets/logos/google_logo.png";
+  static const String facebook = "assets/logos/facebook_logo.png";
 
 
   // ----- OnBoardingImages ------- //
