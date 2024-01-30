@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tstore/utils/constants/sizes.dart';
 
 class TTextFeildTheme {
   TTextFeildTheme._();
@@ -7,41 +8,41 @@ class TTextFeildTheme {
     errorMaxLines: 3,
     prefixIconColor: Colors.grey,
     suffixIconColor: Colors.grey,
-    labelStyle: const TextStyle().copyWith(fontSize: 14, color: Colors.white),
-    hintStyle: const TextStyle().copyWith(fontSize: 14, color: Colors.white),
+    labelStyle: const TextStyle().copyWith(fontSize: 14, color: Colors.black),
+    hintStyle: const TextStyle().copyWith(fontSize: 14, color: Colors.black),
     errorStyle: const TextStyle().copyWith(fontStyle: FontStyle.normal),
     floatingLabelStyle:
-        const TextStyle().copyWith(color: Colors.white.withOpacity(0.8)),
+        const TextStyle().copyWith(color: Colors.black.withOpacity(0.8)),
 
     border: const OutlineInputBorder().copyWith(
-      borderRadius: BorderRadius.circular(14),
+      borderRadius: BorderRadius.circular(TSizes.inputFeildRadius),
       borderSide: const BorderSide(width: 1, color: Colors.grey),
     ),
 
     enabledBorder: const OutlineInputBorder().copyWith(
-      borderRadius: BorderRadius.circular(14),
+      borderRadius: BorderRadius.circular(TSizes.inputFeildRadius),
       borderSide: const BorderSide(width: 1, color: Colors.grey),
     ),
 
     focusedBorder: const OutlineInputBorder().copyWith(
-      borderRadius: BorderRadius.circular(14),
+      borderRadius: BorderRadius.circular(TSizes.inputFeildRadius),
       borderSide: const BorderSide(width: 1, color: Colors.white),
     ),
 
     errorBorder: const OutlineInputBorder().copyWith(
-      borderRadius: BorderRadius.circular(14),
+      borderRadius: BorderRadius.circular(TSizes.inputFeildRadius),
       borderSide: const BorderSide(width: 1, color: Colors.red),
     ),
 
     focusedErrorBorder: const OutlineInputBorder().copyWith(
-      borderRadius: BorderRadius.circular(14),
+      borderRadius: BorderRadius.circular(TSizes.inputFeildRadius),
       borderSide: const BorderSide(width: 2, color: Colors.orange),
     ),
   );
 
 
   static InputDecorationTheme darkInputDecorationTheme = InputDecorationTheme(
-    errorMaxLines: 3,
+    errorMaxLines: 2,
     prefixIconColor: Colors.grey,
     suffixIconColor: Colors.grey,
     labelStyle: const TextStyle().copyWith(fontSize: 14, color: Colors.white),
@@ -51,27 +52,27 @@ class TTextFeildTheme {
         const TextStyle().copyWith(color: Colors.white.withOpacity(0.8)),
 
     border: const OutlineInputBorder().copyWith(
-      borderRadius: BorderRadius.circular(14),
+      borderRadius: BorderRadius.circular(TSizes.inputFeildRadius),
       borderSide: const BorderSide(width: 1, color: Colors.grey),
     ),
 
     enabledBorder: const OutlineInputBorder().copyWith(
-      borderRadius: BorderRadius.circular(14),
+      borderRadius: BorderRadius.circular(TSizes.inputFeildRadius),
       borderSide: const BorderSide(width: 1, color: Colors.grey),
     ),
 
     focusedBorder: const OutlineInputBorder().copyWith(
-      borderRadius: BorderRadius.circular(14),
+      borderRadius: BorderRadius.circular(TSizes.inputFeildRadius),
       borderSide: const BorderSide(width: 1, color: Colors.white),
     ),
 
     errorBorder: const OutlineInputBorder().copyWith(
-      borderRadius: BorderRadius.circular(14),
+      borderRadius: BorderRadius.circular(TSizes.inputFeildRadius),
       borderSide: const BorderSide(width: 1, color: Colors.red),
     ),
 
     focusedErrorBorder: const OutlineInputBorder().copyWith(
-      borderRadius: BorderRadius.circular(14),
+      borderRadius: BorderRadius.circular(TSizes.inputFeildRadius),
       borderSide: const BorderSide(width: 2, color: Colors.orange),
     ),
   );

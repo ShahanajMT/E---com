@@ -25,23 +25,24 @@ class TTexts {
   static const String newPassword = "newPassword";
   static const String changePassword = "changePassword";
   static const String forgetPassword = "forgetPassword";
-  static const String phoneNo = "";
-  static const String userName = "";
+  static const String phoneNo = "phoneNo";
+  static const String userName = "userName";
   static const String rememberMe = "rememberMe";
   static const String signIn = "signIn";
   static const String createAccount = "createAccount";
   static const String orSignInWith = "orSignInWith";
-  static const String iAgreeTo = "";
-  static const String privacyPolicy = "";
-  static const String termsOfUse = "";
-  static const String verificationCode = "";
-  static const String resendEmail = "";
-  static const String resendEmailIn = "";
+  static const String iAgreeTo = "iAgreeTo";
+   static const String and = "and";
+  static const String privacyPolicy = "privacyPolicy";
+  static const String termsOfUse = "termsOfUse";
+  static const String verificationCode = "verificationCode";
+  static const String resendEmail = "resendEmail";
+  static const String resendEmailIn = "resendEmailIn";
 
   // -- Authentication Heading Text -- //
   static const String loginTitle = "Welcome back!,";
   static const String loginSubTitle = "Discover Limitless Choices and Unmatched Conveneince..";
-  static const String signUpTitle = "";
+  static const String signUpTitle = "Let's create your account";
   static const String forgetPasswordTitle = "";
   static const String forgetPasswordSubTitle = "";
   static const String changePasswordTitle = "";

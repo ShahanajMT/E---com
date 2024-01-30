@@ -8,10 +8,10 @@ import 'package:tstore/utils/constants/sizes.dart';
 import 'package:tstore/utils/constants/text_strings.dart';
 import 'package:tstore/utils/helpers/helper_fn.dart';
 
-import 'widgets/TFormDivider.dart';
+import '../../../../common/styles/widgets/TFormDivider.dart';
 import 'widgets/TLoginForm.dart';
 import 'widgets/TLoginHeader.dart';
-import 'widgets/TSocialButtons.dart';
+import '../../../../common/styles/widgets/TSocialButtons.dart';
 
 class LogInPage extends StatelessWidget {
   const LogInPage({super.key});
