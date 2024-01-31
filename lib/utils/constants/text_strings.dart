@@ -47,8 +47,11 @@ class TTexts {
   static const String forgetPasswordSubTitle = "";
   static const String changePasswordTitle = "";
   static const String changePasswordSubTitle = "";
-  static const String confirmEmail = "";
-  static const String confirmEmailSubTitle = "";
+  static const String confirmEmail = "Verify your email address!";
+  static const String confirmEmailSubTitle = " Congrats your accounts.. ..... .... .... ... ... .... ...";
+  static const String tContinue = "Continue";
+  static const String yourAccountCreatedTitle = "yourAccountCreatedTitle";
+  static const String yourAccountCreatedSubTitle = "yourAccountCreatedSubTitle";
   static const String emailNotReceivedMessage = "";
   static const String googleAccountCreatedTitle = "";
   static const String googleAccountCreatedSubTitle = "";

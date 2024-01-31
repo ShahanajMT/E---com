@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/utils.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:tstore/common/styles/widgets/TFormDivider.dart';
 import 'package:tstore/common/styles/widgets/TSocialButtons.dart';
+import 'package:tstore/features/authentication/screens/signUp/verifyEmail.dart';
 import 'package:tstore/utils/constants/colors.dart';
 import 'package:tstore/utils/constants/sizes.dart';
 import 'package:tstore/utils/constants/text_strings.dart';
@@ -155,7 +158,7 @@ class SignUpPage extends StatelessWidget {
                       style: ElevatedButton.styleFrom(
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10))),
-                      onPressed: () {},
+                      onPressed: () => Get.to(() => const VerifyEmailScreen()),
                       child: const Text(TTexts.createAccount),
                     ),
                   )
