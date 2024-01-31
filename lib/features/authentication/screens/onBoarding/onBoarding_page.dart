@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'package:tstore/features/authentication/controllers/onBoarding/onBoaring_controller.dart';
-import 'package:tstore/features/authentication/screens/widgets/onBoardingCirBu.dart';
+import 'package:tstore/features/authentication/screens/onBoarding/widgets/onBoardingCirBu.dart';
 
 import 'package:tstore/utils/constants/image_strings.dart';
 

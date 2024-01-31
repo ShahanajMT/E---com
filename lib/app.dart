@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:tstore/features/authentication/screens/onBoarding_page.dart';
+import 'package:tstore/features/authentication/screens/onBoarding/onBoarding_page.dart';
 
 import 'utils/themes/theme.dart';
 

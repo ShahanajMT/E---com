@@ -18,26 +18,26 @@ class TTexts {
   static const String homeAppBarSubTitle = "ShahanajShanu";
 
   // ------ Authentication Form Text ----- //
-  static const String firstName = "firstName";
-  static const String lastName = "lastName";
+  static const String firstName = "First Name";
+  static const String lastName = "Last Name";
   static const String email = "E-mail";
-  static const String password = "password";
-  static const String newPassword = "newPassword";
-  static const String changePassword = "changePassword";
-  static const String forgetPassword = "forgetPassword";
-  static const String phoneNo = "phoneNo";
-  static const String userName = "userName";
-  static const String rememberMe = "rememberMe";
-  static const String signIn = "signIn";
-  static const String createAccount = "createAccount";
-  static const String orSignInWith = "orSignInWith";
-  static const String iAgreeTo = "iAgreeTo";
+  static const String password = "Password";
+  static const String newPassword = "New Password";
+  static const String changePassword = "Change Password";
+  static const String forgetPassword = "Forget Password ?";
+  static const String phoneNo = "Phone Number";
+  static const String userName = "User Name";
+  static const String rememberMe = "Remember Me";
+  static const String signIn = "Sign In";
+  static const String createAccount = "Create Account";
+  static const String orSignInWith = "Or SignIn With";
+  static const String iAgreeTo = "I Agree To";
    static const String and = "and";
-  static const String privacyPolicy = "privacyPolicy";
-  static const String termsOfUse = "termsOfUse";
-  static const String verificationCode = "verificationCode";
-  static const String resendEmail = "resendEmail";
-  static const String resendEmailIn = "resendEmailIn";
+  static const String privacyPolicy = "Privacy Policy";
+  static const String termsOfUse = "Terms Of Use";
+  static const String verificationCode = "Verification Code";
+  static const String resendEmail = "Resend Email";
+  static const String resendEmailIn = "Resend Email In";
 
   // -- Authentication Heading Text -- //
   static const String loginTitle = "Welcome back!,";

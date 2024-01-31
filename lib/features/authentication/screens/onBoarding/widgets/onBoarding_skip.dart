@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:tstore/features/authentication/controllers/onBoarding/onBoaring_controller.dart';
 
-import '../../../../utils/constants/sizes.dart';
-import '../../../../utils/devices/device_utility.dart';
+import '../../../../../utils/constants/sizes.dart';
+import '../../../../../utils/devices/device_utility.dart';
 
 class OnBoardingSkip extends StatelessWidget {
   const OnBoardingSkip({
