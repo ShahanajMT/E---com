@@ -44,12 +44,13 @@ class TTexts {
   static const String loginSubTitle = "Discover Limitless Choices and Unmatched Conveneince..";
   static const String signUpTitle = "Let's create your account";
   static const String forgetPasswordTitle = "";
-  static const String forgetPasswordSubTitle = "";
-  static const String changePasswordTitle = "";
-  static const String changePasswordSubTitle = "";
+  static const String forgetPasswordSubTitle = "Don't worry sometimes ... ....";
+  static const String changePasswordTitle = "Password Reset Email Send";
+  static const String changePasswordSubTitle = "...........................";
   static const String confirmEmail = "Verify your email address!";
   static const String confirmEmailSubTitle = " Congrats your accounts.. ..... .... .... ... ... .... ...";
   static const String tContinue = "Continue";
+  static const String done = "Done";
   static const String yourAccountCreatedTitle = "yourAccountCreatedTitle";
   static const String yourAccountCreatedSubTitle = "yourAccountCreatedSubTitle";
   static const String emailNotReceivedMessage = "";
