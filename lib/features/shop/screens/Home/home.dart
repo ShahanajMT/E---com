@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 
 
 
+import 'package:tstore/utils/constants/sizes.dart';
+
 
 import '../../../../common/styles/widgets/custome_shapes/containers/TPrimaryHeaderContainer.dart';
-
+import '../../../../common/styles/widgets/custome_shapes/containers/search_container.dart';
 import 'widgets/THomeAppBar.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -13,7 +15,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  const Scaffold(
+    return const Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -21,8 +23,12 @@ class HomeScreen extends StatelessWidget {
               child: Column(
                 children: [
                   // ! --- AppBar -- ! //
-                  THomeAppBar()
+                  THomeAppBar(),
+                  SizedBox(height: TSizes.spaceBwSections),
                   // ! --- SearchBar -- ! //
+                  TSearchController(
+                    text: 'Search in Store',
+                  ),
 
                   // ! --- Categories -- ! //
                 ],
@@ -34,5 +40,3 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-
-
