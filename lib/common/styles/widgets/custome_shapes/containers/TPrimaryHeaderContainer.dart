@@ -35,6 +35,9 @@ class TPrimaryHeaderContainer extends StatelessWidget {
                   child: TCircularContainer(
                       backgroudColor:
                           TColors.textWhite.withOpacity(0.1))),
+
+                          if (child != null) Positioned.fill(child: child!),
+                          
             ],
           ),
         ),
