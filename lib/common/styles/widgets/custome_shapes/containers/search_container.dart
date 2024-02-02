@@ -11,39 +11,44 @@ class TSearchController extends StatelessWidget {
     Key? key,
     required this.text,
     this.icon = Iconsax.search_normal,
-     this.showBackground = true,
-     this.showBorder = true,
+    this.showBackground = true,
+    this.showBorder = true,
+    this.onTap,
   }) : super(key: key);
 
   final String text;
   final IconData? icon;
   final bool showBackground;
   final bool showBorder;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
     final darkMode = THelperFunction.isDarkMode(context);
-    return Padding(
-      padding: const EdgeInsets.symmetric(
-          horizontal: TSizes.defaultSpace),
-      child: Container(
-        width: TDeviceUtils.getScreenWidth(context),
-        padding: const EdgeInsets.all(TSizes.md),
-        decoration: BoxDecoration(
-          color: showBackground ? darkMode ? TColors.dark : TColors.white : Colors.transparent,
-            borderRadius:
-                BorderRadius.circular(TSizes.cardRadiusLg),
-            border: showBorder? Border.all(color: TColors.grey) : null),
-            child: Row(
-              children: [
-                 Icon(icon, color: TColors.darkergrey),
-                const  SizedBox(width: TSizes.spaceBwItems),
-                Text(text, style: Theme.of(context).textTheme.bodySmall),
-
-              ],
-            ),
+    return InkWell(
+      onTap: onTap,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: TSizes.defaultSpace),
+        child: Container(
+          width: TDeviceUtils.getScreenWidth(context),
+          padding: const EdgeInsets.all(TSizes.md),
+          decoration: BoxDecoration(
+              color: showBackground
+                  ? darkMode
+                      ? TColors.dark
+                      : TColors.white
+                  : Colors.transparent,
+              borderRadius: BorderRadius.circular(TSizes.cardRadiusLg),
+              border: showBorder ? Border.all(color: TColors.grey) : null),
+          child: Row(
+            children: [
+              Icon(icon, color: TColors.darkergrey),
+              const SizedBox(width: TSizes.spaceBwItems),
+              Text(text, style: Theme.of(context).textTheme.bodySmall),
+            ],
+          ),
+        ),
       ),
-      
     );
   }
 }

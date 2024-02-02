@@ -2,13 +2,16 @@
 import 'package:flutter/material.dart';
 
 
-
+import 'package:tstore/utils/constants/image_strings.dart';
 import 'package:tstore/utils/constants/sizes.dart';
 
 
 import '../../../../common/styles/widgets/custome_shapes/containers/TPrimaryHeaderContainer.dart';
 import '../../../../common/styles/widgets/custome_shapes/containers/search_container.dart';
+import '../../../../common/styles/widgets/imageTextWidget/vertical_image_text.dart';
+import '../../../../common/styles/widgets/texts/section_heading.dart';
 import 'widgets/THomeAppBar.dart';
+import 'widgets/THomeCategories.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -23,14 +26,30 @@ class HomeScreen extends StatelessWidget {
               child: Column(
                 children: [
                   // ! --- AppBar -- ! //
-                  THomeAppBar(),
-                  SizedBox(height: TSizes.spaceBwSections),
+                  const THomeAppBar(),
+                  const SizedBox(height: TSizes.spaceBwSections),
                   // ! --- SearchBar -- ! //
-                  TSearchController(
+                   TSearchController(
                     text: 'Search in Store',
                   ),
+                  const SizedBox(height: TSizes.spaceBwSections),
 
                   // ! --- Categories -- ! //
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: TSizes.defaultSpace),
+                    child: Column(
+                      children: [
+                        const TSectionHeading(
+                            title: 'Popular Categories',
+                            showActionButton: false),
+                        const SizedBox(height: TSizes.spaceBwSections),
+
+                        // ---- Categoreies ---- //
+                        THomeCategories(),
+                      ],
+                    ),
+                  )
                 ],
               ),
             ),
@@ -40,3 +59,7 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
+
+
+
+

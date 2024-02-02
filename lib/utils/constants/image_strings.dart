@@ -18,4 +18,10 @@ class TImages {
   static const String staticSuccessIllustrtion2 = "assets/images/onBoarding/onBoarding2.gif";
   static const String staticSuccessIllustrtion3 = "assets/images/onBoarding/onBoarding3.gif";
 
+   // ----- CategoryIcons ------- //
+  static const String sportIcon = "assets/images/onBoarding/onBoarding1.gif";
+  static const String clothIcon = "/home/ubantu/MYPROJECTS/tstore/assets/icons/categories/clothes.png";
+  static const String shoesIcon = "assets/images/onBoarding/onBoarding3.gif";
+
+
 }
