@@ -1,17 +1,18 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+
 import 'package:flutter/material.dart';
 
 
 import 'package:tstore/utils/constants/image_strings.dart';
 import 'package:tstore/utils/constants/sizes.dart';
 
-
 import '../../../../common/styles/widgets/custome_shapes/containers/TPrimaryHeaderContainer.dart';
 import '../../../../common/styles/widgets/custome_shapes/containers/search_container.dart';
-import '../../../../common/styles/widgets/imageTextWidget/vertical_image_text.dart';
+
 import '../../../../common/styles/widgets/texts/section_heading.dart';
 import 'widgets/THomeAppBar.dart';
 import 'widgets/THomeCategories.dart';
+import 'widgets/TPramoSlider.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -26,30 +27,42 @@ class HomeScreen extends StatelessWidget {
               child: Column(
                 children: [
                   // ! --- AppBar -- ! //
-                  const THomeAppBar(),
-                  const SizedBox(height: TSizes.spaceBwSections),
+                  THomeAppBar(),
+                  SizedBox(height: TSizes.spaceBwSections),
                   // ! --- SearchBar -- ! //
-                   TSearchController(
+                  TSearchController(
                     text: 'Search in Store',
                   ),
-                  const SizedBox(height: TSizes.spaceBwSections),
+                  SizedBox(height: TSizes.spaceBwSections),
 
                   // ! --- Categories -- ! //
                   Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: TSizes.defaultSpace),
+                    padding:
+                        EdgeInsets.symmetric(horizontal: TSizes.defaultSpace),
                     child: Column(
                       children: [
-                        const TSectionHeading(
+                        TSectionHeading(
                             title: 'Popular Categories',
                             showActionButton: false),
-                        const SizedBox(height: TSizes.spaceBwSections),
+                        SizedBox(height: TSizes.spaceBwSections),
 
                         // ---- Categoreies ---- //
                         THomeCategories(),
                       ],
                     ),
-                  )
+                  ),
+                ],
+              ),
+            ),
+
+            //! Body
+            Padding(
+              padding: const EdgeInsets.all(TSizes.defaultSpace),
+              child: TPramoSlider(
+                banners: [
+                  TImages.promoBanner1,
+                  TImages.promoBanner2,
+                  TImages.promoBanner3
                 ],
               ),
             ),
@@ -59,7 +72,5 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-
-
 
 
