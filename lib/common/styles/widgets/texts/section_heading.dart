@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+
 class TSectionHeading extends StatelessWidget {
   const TSectionHeading({
     Key? key,
@@ -18,6 +19,7 @@ class TSectionHeading extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //final darkMode = THelperFunction.isDarkMode(context);
     return Row(
       //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [

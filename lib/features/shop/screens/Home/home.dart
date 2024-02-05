@@ -1,14 +1,16 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 
 import 'package:flutter/material.dart';
-
+import 'package:tstore/common/styles/widgets/products/product_cart/TProductCart_vertical.dart';
 
 import 'package:tstore/utils/constants/image_strings.dart';
 import 'package:tstore/utils/constants/sizes.dart';
+import 'package:tstore/utils/constants/text_strings.dart';
 
 import '../../../../common/styles/widgets/custome_shapes/containers/TPrimaryHeaderContainer.dart';
 import '../../../../common/styles/widgets/custome_shapes/containers/search_container.dart';
 
+import '../../../../common/styles/widgets/layout/TGridlayout.dart';
 import '../../../../common/styles/widgets/texts/section_heading.dart';
 import 'widgets/THomeAppBar.dart';
 import 'widgets/THomeCategories.dart';
@@ -19,11 +21,11 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
-            TPrimaryHeaderContainer(
+            const TPrimaryHeaderContainer(
               child: Column(
                 children: [
                   // ! --- AppBar -- ! //
@@ -42,12 +44,40 @@ class HomeScreen extends StatelessWidget {
                     child: Column(
                       children: [
                         TSectionHeading(
-                            title: 'Popular Categories',
-                            showActionButton: false),
+                          title: 'Popular Categories',
+                          showActionButton: false,
+                        ),
                         SizedBox(height: TSizes.spaceBwSections),
 
                         // ---- Categoreies ---- //
-                        THomeCategories(),
+                        THomeCategories(
+                          images: [
+                            TImages.animalIcon,
+                            TImages.animationIcon,
+                            TImages.clothIcon,
+                            TImages.cosmeticsIcon,
+                            TImages.electronicsIcon,
+                            TImages.furnitureIcon,
+                            TImages.jweleryIcon,
+                            TImages.shoesIcon,
+                            TImages.sportsIcon,
+                            TImages.toysIcon,
+                          ],
+                          titles: [
+                            TTexts.animal,
+                            TTexts.animation,
+                            TTexts.cloths,
+                            TTexts.cosmetics,
+                            TTexts.electronics,
+                            TTexts.furniture,
+                            TTexts.jwelery,
+                            TTexts.shoes,
+                            TTexts.sports,
+                            TTexts.toys,
+                          ],
+                        ),
+
+                        // ---
                       ],
                     ),
                   ),
@@ -58,11 +88,23 @@ class HomeScreen extends StatelessWidget {
             //! Body
             Padding(
               padding: const EdgeInsets.all(TSizes.defaultSpace),
-              child: TPramoSlider(
-                banners: [
-                  TImages.promoBanner1,
-                  TImages.promoBanner2,
-                  TImages.promoBanner3
+              child: Column(
+                children: [
+                  // ---- CarouselSlider ---- //
+                  const TPramoSlider(
+                    banners: [
+                      TImages.promoBanner1,
+                      TImages.promoBanner2,
+                      TImages.promoBanner3
+                    ],
+                  ),
+                  const SizedBox(height: TSizes.spaceBwSections),
+
+                  // ---- Popular Products ----- //
+                  TGridLayout(
+                    itemCount: 6,
+                    itemBuilder: (_, index) => const TProductCardVertical(),
+                  ),
                 ],
               ),
             ),
@@ -72,5 +114,3 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-
-

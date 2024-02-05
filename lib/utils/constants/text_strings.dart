@@ -56,5 +56,18 @@ class TTexts {
   static const String emailNotReceivedMessage = "";
   static const String googleAccountCreatedTitle = "";
   static const String googleAccountCreatedSubTitle = "";
+
+
+  // ----- Categories Titles ---- //
+  static const String animal = "Animal";
+  static const String animation = "Animation";
+  static const String cloths = "Cloth";
+  static const String cosmetics = "Cosmetics";
+  static const String electronics = "Electronics";
+  static const String furniture = "Furniture";
+  static const String jwelery = "Jwelery";
+  static const String shoes = "Shoes";
+  static const String sports = "Spots";
+  static const String toys = "Toys";
   
 }
