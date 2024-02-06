@@ -28,8 +28,9 @@ class TPramoSlider extends StatelessWidget {
         CarouselSlider(
           items: banners.map((url) =>  TRoundImage(imageUrl: url)).toList(),
           options: CarouselOptions(
-           
+           autoPlay: true,
             viewportFraction: 1,
+            enlargeCenterPage: true,
             onPageChanged: (index, _) => controller.updatePageIndicator(index),
             //aspectRatio: 12 / 6,
           ),
@@ -40,7 +41,7 @@ class TPramoSlider extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              for (int i = 0; i < banners.length; i++)  TCircularContainer(width: 20, height: 10,  margin: const EdgeInsets.only(left: 10), backgroudColor: controller.carouselCurrentIndex.value == i ? TColors.primary : TColors.grey,)
+              for (int i = 0; i < banners.length; i++)  TCircularContainer(width: 20, height: 5,  margin: const EdgeInsets.only(left: 10), backgroudColor: controller.carouselCurrentIndex.value == i ? TColors.primary : TColors.grey,)
             ],
           ),
         )

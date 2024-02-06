@@ -24,7 +24,7 @@ class TRoundImage extends StatelessWidget {
   final String imageUrl;
   final bool applayImageRadius;
   final BoxBorder? border;
-  final Color backgroudColor;
+  final Color? backgroudColor;
   final BoxFit? fit;
   final EdgeInsetsGeometry? padding;
   final bool isNetworkImage;

@@ -4,16 +4,18 @@ import 'package:iconsax/iconsax.dart';
 
 import 'package:tstore/common/styles/shadows.dart';
 import 'package:tstore/common/styles/widgets/custome_shapes/containers/TRoundedContainer.dart';
-
 import 'package:tstore/common/styles/widgets/icons/TCircularIcon.dart';
 import 'package:tstore/common/styles/widgets/images/T_RoundedImage.dart';
 import 'package:tstore/common/styles/widgets/texts/productPriceText.dart';
+import 'package:tstore/common/styles/widgets/texts/t_brandIconTextWithVerifiedIcon.dart';
 import 'package:tstore/utils/constants/colors.dart';
+
 import 'package:tstore/utils/constants/image_strings.dart';
 import 'package:tstore/utils/constants/sizes.dart';
 import 'package:tstore/utils/helpers/helper_fn.dart';
 
 import '../../texts/productTitleText.dart';
+
 
 class TProductCardVertical extends StatelessWidget {
   const TProductCardVertical({super.key});
@@ -86,22 +88,14 @@ class TProductCardVertical extends StatelessWidget {
                   const ProductTitleText(
                       title: 'Canvas Angle Shoes', smallSize: true),
                   const SizedBox(height: TSizes.spaceBwItems / 2),
-                  Row(
-                    children: [
-                      Text('Canvas',
-                          overflow: TextOverflow.ellipsis,
-                          maxLines: 1,
-                          style: Theme.of(context).textTheme.labelMedium),
-                      const SizedBox(width: TSizes.xs),
-                      const Icon(Iconsax.verify5,
-                          color: TColors.primary, size: TSizes.iconXs)
-                    ],
-                  ),
+                  TBrandTitleTextWithVerifiedIcon(title: 'Canvas'),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       // ---- Price ---- //
-                      const TProductPriceText(price: '35.5',),
+                      const TProductPriceText(
+                        price: '35.5',
+                      ),
 
                       // ---- Add to Card Button --- //
                       Container(

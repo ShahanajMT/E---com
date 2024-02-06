@@ -21,94 +21,102 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            const TPrimaryHeaderContainer(
-              child: Column(
-                children: [
-                  // ! --- AppBar -- ! //
-                  THomeAppBar(),
-                  SizedBox(height: TSizes.spaceBwSections),
-                  // ! --- SearchBar -- ! //
-                  TSearchController(
-                    text: 'Search in Store',
-                  ),
-                  SizedBox(height: TSizes.spaceBwSections),
+    return SafeArea(
+      child: Scaffold(
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              const TPrimaryHeaderContainer(
+                child: Column(
+                  children: [
+                    // ! --- AppBar -- ! //
+                    THomeAppBar(),
+                    SizedBox(height: TSizes.spaceBwSections),
+                    // ! --- SearchBar -- ! //
+                    TSearchController(
+                      text: 'Search in Store',
+                      
+                    ),
+                    SizedBox(height: TSizes.spaceBwSections),
 
-                  // ! --- Categories -- ! //
-                  Padding(
-                    padding:
-                        EdgeInsets.symmetric(horizontal: TSizes.defaultSpace),
-                    child: Column(
-                      children: [
-                        TSectionHeading(
-                          title: 'Popular Categories',
-                          showActionButton: false,
-                        ),
-                        SizedBox(height: TSizes.spaceBwSections),
+                    // ! --- Categories -- ! //
+                    Padding(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: TSizes.defaultSpace),
+                      child: Column(
+                        children: [
+                          TSectionHeading(
+                            title: 'Popular Categories',
+                            showActionButton: false,
+                          ),
+                          SizedBox(height: TSizes.spaceBwSections),
 
-                        // ---- Categoreies ---- //
-                        THomeCategories(
-                          images: [
-                            TImages.animalIcon,
-                            TImages.animationIcon,
-                            TImages.clothIcon,
-                            TImages.cosmeticsIcon,
-                            TImages.electronicsIcon,
-                            TImages.furnitureIcon,
-                            TImages.jweleryIcon,
-                            TImages.shoesIcon,
-                            TImages.sportsIcon,
-                            TImages.toysIcon,
-                          ],
-                          titles: [
-                            TTexts.animal,
-                            TTexts.animation,
-                            TTexts.cloths,
-                            TTexts.cosmetics,
-                            TTexts.electronics,
-                            TTexts.furniture,
-                            TTexts.jwelery,
-                            TTexts.shoes,
-                            TTexts.sports,
-                            TTexts.toys,
-                          ],
-                        ),
+                          // ---- Categoreies ---- //
+                          THomeCategories(
+                            images: [
+                              TImages.animalIcon,
+                              TImages.animationIcon,
+                              TImages.clothIcon,
+                              TImages.cosmeticsIcon,
+                              TImages.electronicsIcon,
+                              TImages.furnitureIcon,
+                              TImages.jweleryIcon,
+                              TImages.shoesIcon,
+                              TImages.sportsIcon,
+                              TImages.toysIcon,
+                            ],
+                            titles: [
+                              TTexts.animal,
+                              TTexts.animation,
+                              TTexts.cloths,
+                              TTexts.cosmetics,
+                              TTexts.electronics,
+                              TTexts.furniture,
+                              TTexts.jwelery,
+                              TTexts.shoes,
+                              TTexts.sports,
+                              TTexts.toys,
+                            ],
+                          ),
 
-                        // ---
+                          // ---
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+
+              //! Body
+              Padding(
+                padding: const EdgeInsets.all(TSizes.defaultSpace),
+                child: Column(
+                  children: [
+                    // ---- CarouselSlider ---- //
+                    const TPramoSlider(
+                      banners: [
+                        TImages.promoBanner1,
+                        TImages.promoBanner2,
+                        TImages.promoBanner3
                       ],
                     ),
-                  ),
-                ],
-              ),
-            ),
+                    const SizedBox(height: TSizes.spaceBwSections),
 
-            //! Body
-            Padding(
-              padding: const EdgeInsets.all(TSizes.defaultSpace),
-              child: Column(
-                children: [
-                  // ---- CarouselSlider ---- //
-                  const TPramoSlider(
-                    banners: [
-                      TImages.promoBanner1,
-                      TImages.promoBanner2,
-                      TImages.promoBanner3
-                    ],
-                  ),
-                  const SizedBox(height: TSizes.spaceBwSections),
+                    // ---- Heading ---- //
+                    TSectionHeading(title: 'Popular Products', onPressed: () {},),
+                    const SizedBox(height: TSizes.spaceBwItems),
 
-                  // ---- Popular Products ----- //
-                  TGridLayout(
-                    itemCount: 6,
-                    itemBuilder: (_, index) => const TProductCardVertical(),
-                  ),
-                ],
+                    // ---- Popular Products ----- //
+
+                    TGridLayout(
+                      itemCount: 6,
+                      itemBuilder: (_, index) => const TProductCardVertical(),
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

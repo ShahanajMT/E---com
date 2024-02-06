@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
@@ -14,6 +15,7 @@ class TSearchController extends StatelessWidget {
     this.showBackground = true,
     this.showBorder = true,
     this.onTap,
+     this.padding = const EdgeInsets.symmetric(horizontal: TSizes.defaultSpace),
   }) : super(key: key);
 
   final String text;
@@ -21,6 +23,7 @@ class TSearchController extends StatelessWidget {
   final bool showBackground;
   final bool showBorder;
   final VoidCallback? onTap;
+  final EdgeInsetsGeometry padding;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +31,7 @@ class TSearchController extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: TSizes.defaultSpace),
+        padding: padding,
         child: Container(
           width: TDeviceUtils.getScreenWidth(context),
           padding: const EdgeInsets.all(TSizes.md),

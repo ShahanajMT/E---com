@@ -21,7 +21,7 @@ class TSectionHeading extends StatelessWidget {
   Widget build(BuildContext context) {
     //final darkMode = THelperFunction.isDarkMode(context);
     return Row(
-      //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(title,
             style: Theme.of(context)

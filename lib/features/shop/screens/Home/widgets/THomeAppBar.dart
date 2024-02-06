@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tstore/utils/helpers/helper_fn.dart';
 
 import '../../../../../common/styles/widgets/appBar/custom_appBar.dart';
 import '../../../../../common/styles/widgets/products/cart/cart_menu_icon.dart';
@@ -12,12 +13,13 @@ class THomeAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final darkMode = THelperFunction.isDarkMode(context);
     return TAppBar(
       title: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(TTexts.homeAppBarTitle, style: Theme.of(context).textTheme.labelMedium!.apply(color: TColors.grey),),
-          Text(TTexts.homeAppBarSubTitle, style: Theme.of(context).textTheme.headlineMedium!.apply(color: TColors.white),),
+          Text(TTexts.homeAppBarTitle, style: Theme.of(context).textTheme.labelMedium!.apply(color: darkMode ? TColors.darkergrey : TColors.grey),),
+          Text(TTexts.homeAppBarSubTitle, style: Theme.of(context).textTheme.headlineMedium!.apply(color: darkMode? TColors.white : TColors.black),),
         ],
       ),
       actions: [
