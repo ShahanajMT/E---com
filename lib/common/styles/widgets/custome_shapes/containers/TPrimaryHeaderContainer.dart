@@ -16,30 +16,29 @@ class TPrimaryHeaderContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return TCurvedEdgeWidget(
       child: Container(
+        height: 350,
         color: TColors.primary,
-        padding: const EdgeInsets.all(0),
-        child: SizedBox(
-          height: 400,
-          child: Stack(
-            children: [
-              //! BackgroudCustom Shapes
-              Positioned(
-                  top: -150,
-                  right: -250,
-                  child: TCircularContainer(
-                      backgroudColor:
-                          TColors.textWhite.withOpacity(0.1))),
-              Positioned(
-                  top: 100,
-                  right: -300,
-                  child: TCircularContainer(
-                      backgroudColor:
-                          TColors.textWhite.withOpacity(0.1))),
-
-                          if (child != null) Positioned.fill(child: child!),
-                          
-            ],
-          ),
+        //padding: const EdgeInsets.all(0),
+        child: Stack(
+          children: [
+            //! BackgroudCustom Shapes
+            Positioned(
+                top: -150,
+                right: -250,
+                child: TCircularContainer(
+                    backgroudColor:
+                        TColors.textWhite.withOpacity(0.1))),
+            Positioned(
+                top: 100,
+                right: -300,
+                child: TCircularContainer(
+                    backgroudColor:
+                        TColors.textWhite.withOpacity(0.1))),
+                        
+      
+                        if (child != null) Positioned.fill(child: child!),
+                        
+          ],
         ),
       ),
     );

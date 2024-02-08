@@ -42,6 +42,9 @@ class TImages {
   static const String productImage2 = "assets/images/products/redme1.jpg";
   static const String productImage3 = "assets/images/products/iPhone1.jpg";
 
+  // ------ User ------- //
+  static const String user = "assets/images/user/user.png";
+
 
 
 }
