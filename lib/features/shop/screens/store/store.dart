@@ -15,7 +15,6 @@ import 'package:tstore/utils/constants/colors.dart';
 import 'package:tstore/utils/constants/sizes.dart';
 import 'package:tstore/utils/helpers/helper_fn.dart';
 
-
 import '../../../../common/styles/widgets/brand/TBrandCard.dart';
 
 class StoreScreen extends StatelessWidget {
@@ -97,14 +96,13 @@ class StoreScreen extends StatelessWidget {
                     ))
               ];
             },
-            body:  const TabBarView(
-             
+            body: const TabBarView(
               children: [
                 TCategoryTab(),
-                 TCategoryTab(),
-                  TCategoryTab(),
-                   TCategoryTab(),
-                    TCategoryTab(),
+                TCategoryTab(),
+                TCategoryTab(),
+                TCategoryTab(),
+                TCategoryTab(),
               ],
             ),
           ),
@@ -113,5 +111,3 @@ class StoreScreen extends StatelessWidget {
     );
   }
 }
-
-

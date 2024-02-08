@@ -46,11 +46,12 @@ class TProductCardVertical extends StatelessWidget {
                 children: [
                   //! Thumbnail Image
                   const TRoundImage(
-                      imageUrl: TImages.productImage1, applayImageRadius: true),
+                      imageUrl: TImages.productImage1, applayImageRadius: true, height: 180, fit: BoxFit.cover),
                   //! Sale Tag
                   Positioned(
                     top: 7,
                     left: 5,
+
                     child: TRoundedContainer(
                       radius: TSizes.sm,
                       backgroudColor: TColors.secondary.withOpacity(0.8),
@@ -69,7 +70,7 @@ class TProductCardVertical extends StatelessWidget {
                   //! FavIconButton
                   const Positioned(
                     top: 5,
-                    right: 0,
+                    right: 4,
                     child: TCircularIcon(
                       icon: Iconsax.heart5,
                       color: Colors.red,
@@ -79,16 +80,18 @@ class TProductCardVertical extends StatelessWidget {
               ),
             ),
 
+            //const SizedBox(height: 3,),
+
             //! --- Details
             Padding(
-              padding: const EdgeInsets.only(left: TSizes.sm),
+              padding: const EdgeInsets.only(left: TSizes.sm, top: 10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const ProductTitleText(
                       title: 'Canvas Angle Shoes', smallSize: true),
                   const SizedBox(height: TSizes.spaceBwItems / 2),
-                  TBrandTitleTextWithVerifiedIcon(title: 'Canvas'),
+                  const TBrandTitleTextWithVerifiedIcon(title: 'Canvas'),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [

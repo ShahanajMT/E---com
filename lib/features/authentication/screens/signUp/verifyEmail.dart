@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/utils.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:tstore/common/styles/widgets/success_screen/success_screen.dart';
 import 'package:tstore/features/authentication/screens/login/loginPage.dart';

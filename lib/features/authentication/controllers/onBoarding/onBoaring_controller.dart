@@ -2,7 +2,6 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/state_manager.dart';
 import 'package:tstore/features/authentication/screens/login/loginPage.dart';
 
 class OnBoardingController extends GetxController {
