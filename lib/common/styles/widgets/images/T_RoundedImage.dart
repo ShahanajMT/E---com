@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tstore/utils/constants/colors.dart';
+
 
 import '../../../../utils/constants/sizes.dart';
 
@@ -11,7 +11,7 @@ class TRoundImage extends StatelessWidget {
     required this.imageUrl,
     this.applayImageRadius = true,
     this.border,
-    this.backgroudColor = TColors.light,
+    this.backgroudColor,
     this.fit = BoxFit.cover,
     this.padding,
     this.isNetworkImage = false,

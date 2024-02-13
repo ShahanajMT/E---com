@@ -38,9 +38,9 @@ class TImages {
 
   // ------- Products ----- //
 
-  static const String productImage1 = "assets/images/products/shoes1.jpg";
-  static const String productImage2 = "assets/images/products/redme1.jpg";
-  static const String productImage3 = "assets/images/products/iPhone1.jpg";
+  static const String productImage1 = "assets/images/products/nikeTshir2.png";
+  static const String productImage2 = "assets/images/products/nikeAir2.png";
+  static const String productImage3 = "assets/images/products/nikeShorts2.png";
 
   // ------ User ------- //
   static const String user = "assets/images/user/user.png";

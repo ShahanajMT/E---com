@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 import 'package:tstore/common/styles/shadows.dart';
@@ -8,6 +9,7 @@ import 'package:tstore/common/styles/widgets/icons/TCircularIcon.dart';
 import 'package:tstore/common/styles/widgets/images/T_RoundedImage.dart';
 import 'package:tstore/common/styles/widgets/texts/productPriceText.dart';
 import 'package:tstore/common/styles/widgets/texts/t_brandIconTextWithVerifiedIcon.dart';
+import 'package:tstore/features/shop/screens/product_details/product_details.dart';
 import 'package:tstore/utils/constants/colors.dart';
 
 import 'package:tstore/utils/constants/image_strings.dart';
@@ -24,7 +26,7 @@ class TProductCardVertical extends StatelessWidget {
   Widget build(BuildContext context) {
     final darkMode = THelperFunction.isDarkMode(context);
     return InkWell(
-      onTap: () {},
+      onTap: () => Get.to(() => const ProductDetailsScreen()),
       child: Container(
         width: 180,
         padding: const EdgeInsets.all(1),
@@ -46,7 +48,7 @@ class TProductCardVertical extends StatelessWidget {
                 children: [
                   //! Thumbnail Image
                   const TRoundImage(
-                      imageUrl: TImages.productImage1, applayImageRadius: true, height: 180, fit: BoxFit.cover),
+                      imageUrl: TImages.productImage3, applayImageRadius: true, height: 180, fit: BoxFit.cover),
                   //! Sale Tag
                   Positioned(
                     top: 7,
