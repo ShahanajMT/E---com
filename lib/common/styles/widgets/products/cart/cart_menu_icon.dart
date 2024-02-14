@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:tstore/features/shop/screens/cart/cart.dart';
 import 'package:tstore/utils/helpers/helper_fn.dart';
 
 import '../../../../../utils/constants/colors.dart';
@@ -19,7 +21,7 @@ class TCartCouterIcon extends StatelessWidget {
     final darkMode = THelperFunction.isDarkMode(context);
     return Stack(
       children: [
-        IconButton(onPressed: onPressed, icon:  Icon(Iconsax.shopping_bag, color: darkMode ? TColors.white : TColors.black)),
+        IconButton(onPressed: () => Get.to(() => const CartScreen()), icon:  Icon(Iconsax.shopping_bag, color: darkMode ? TColors.white : TColors.black)),
         Positioned(
           right: 0,
           child: Container(
