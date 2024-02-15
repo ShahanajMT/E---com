@@ -1,5 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:tstore/features/shop/screens/subcategory/subcategory.dart';
 
 import '../../../../../common/styles/widgets/imageTextWidget/vertical_image_text.dart';
 
@@ -27,7 +29,7 @@ class THomeCategories extends StatelessWidget {
           return TVerticalTextImage(
             image: images[index],
             title: titles[index],
-            onTap: () {},
+            onTap: () => Get.to(() => const SubCategories()),
           );
         },
       ),
