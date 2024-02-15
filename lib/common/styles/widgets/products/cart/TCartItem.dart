@@ -8,8 +8,8 @@ import '../../images/T_RoundedImage.dart';
 import '../../texts/productTitleText.dart';
 import '../../texts/t_brandIconTextWithVerifiedIcon.dart';
 
-class TCartItem extends StatelessWidget {
-  const TCartItem({
+class TCartItems extends StatelessWidget {
+  const TCartItems({
     super.key,
   });
 

@@ -45,6 +45,18 @@ class TImages {
   // ------ User ------- //
   static const String user = "assets/images/user/user.png";
 
+  // ------ success ------- //
+  static const String success = "assets/icons/payment_methods/check-mark.png";
+
+
+  // ----- payment methods ----//
+  static  const String amazon_pay = "assets/icons/payment_methods/amazon-pay.png";
+  static  const String paypal_pay = "assets/icons/payment_methods/paypal.png";
+   static  const String google_pay = "assets/icons/payment_methods/google-pay.png";
+  static  const String apple_pay = "assets/icons/payment_methods/apple-pay.png";
+  static  const String mastercard_pay = "assets/icons/payment_methods/card.png";
+  static  const String visa_pay = "assets/icons/payment_methods/visa.png";
+
 
 
 }
