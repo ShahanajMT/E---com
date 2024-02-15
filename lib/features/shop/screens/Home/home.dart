@@ -1,7 +1,9 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:tstore/common/styles/widgets/products/product_cart/TProductCart_vertical.dart';
+import 'package:tstore/features/shop/screens/allProducts/all_products.dart';
 
 import 'package:tstore/utils/constants/image_strings.dart';
 import 'package:tstore/utils/constants/sizes.dart';
@@ -26,7 +28,7 @@ class HomeScreen extends StatelessWidget {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              const TPrimaryHeaderContainer(
+               const TPrimaryHeaderContainer(
                 child: Column(
                   children: [
                     // ! --- AppBar -- ! //
@@ -48,6 +50,7 @@ class HomeScreen extends StatelessWidget {
                           TSectionHeading(
                             title: 'Popular Categories',
                             showActionButton: false,
+                            
                           ),
                           SizedBox(height: TSizes.spaceBwSections),
 
@@ -103,7 +106,7 @@ class HomeScreen extends StatelessWidget {
                     const SizedBox(height: TSizes.spaceBwSections),
 
                     // ---- Heading ---- //
-                    TSectionHeading(title: 'Popular Products', onPressed: () {},),
+                    TSectionHeading(title: 'Popular Products', onPressed: () => Get.to(() => const AllProducts()),),
                     const SizedBox(height: TSizes.spaceBwItems),
 
                     // ---- Popular Products ----- //

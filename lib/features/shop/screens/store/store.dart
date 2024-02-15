@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'package:tstore/common/styles/widgets/appBar/custom_appBar.dart';
 import 'package:tstore/common/styles/widgets/appBar/tabBar.dart';
@@ -8,6 +9,7 @@ import 'package:tstore/common/styles/widgets/custome_shapes/containers/search_co
 import 'package:tstore/common/styles/widgets/layout/TGridlayout.dart';
 import 'package:tstore/common/styles/widgets/products/cart/cart_menu_icon.dart';
 import 'package:tstore/common/styles/widgets/texts/section_heading.dart';
+import 'package:tstore/features/shop/screens/brands/all_brands.dart';
 
 import 'package:tstore/features/shop/screens/store/widgets/category_tab.dart';
 import 'package:tstore/utils/constants/colors.dart';
@@ -66,7 +68,7 @@ class StoreScreen extends StatelessWidget {
                           //! ---- Feature Brands ---- !//
                           TSectionHeading(
                             title: 'Featured Brands',
-                            onPressed: () {},
+                            onPressed: () => Get.to(() => const AllBrands()),
                           ),
                           const SizedBox(height: TSizes.spaceBwItems / 1.5),
 
