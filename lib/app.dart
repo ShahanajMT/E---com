@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tstore/features/authentication/screens/onBoarding/onBoarding_page.dart';
+import 'package:tstore/utils/constants/colors.dart';
 
 import 'utils/themes/theme.dart';
 
@@ -15,7 +16,8 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.system,
       theme: TAppTheme.lightTheme,
       darkTheme: TAppTheme.darkTheme,
-      home: const OnBoardingScreen(),
+      //! show loader or CPI
+      home: const Scaffold(backgroundColor: TColors.primary, body: Center(child: CircularProgressIndicator(color: TColors.white,),),),
     );
   }
 }

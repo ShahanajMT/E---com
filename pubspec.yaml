@@ -12,8 +12,11 @@ environment:
 dependencies:
   carousel_slider: ^4.2.1
   cupertino_icons: ^1.0.2
+  firebase_auth: 
+  firebase_core: 
   flutter:
     sdk: flutter
+  flutter_native_splash: null
   flutter_rating_bar: ^4.0.1
   get: null
   get_storage: ^2.1.1
@@ -28,7 +31,6 @@ dependencies:
 dev_dependencies:
   flutter_lints: ^2.0.0
 
-  flutter_native_splash: null
   flutter_test:
     sdk: flutter
 
