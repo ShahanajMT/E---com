@@ -9,6 +9,8 @@ class SignupController extends GetxController {
   static SignupController get instaance => Get.find();
 
   //? Variables
+  final hidePassword = true.obs;
+  final privacyPolicy = true.obs;
   final fistName = TextEditingController();
   final lastName = TextEditingController();
   final userName = TextEditingController();
@@ -21,19 +23,25 @@ class SignupController extends GetxController {
   //? SIGNUP
   Future<void> signUp () async {
     try {
-      // start  loading 
+      //! start  loading 
       TFullScreenLoader.openLoadingDialog('We are processing your interface', TImages.animationIcon);
 
-      // check Inetwork connetivity
+      //! check Inetwork connetivity
       final isConnected = await NetworkManager.inastance.isConnected();
       if (!isConnected) {
         //TFullScreenLoader.stopLoading();
         return;
       }
 
-      // form validation
+      //! form validation
       if (!signupFormKey.currentState!.validate()) {
         //TFullScreenLoader.stopLoading();
+        return;
+      }
+
+      //! privacyPolicy
+      if (!privacyPolicy.value) {
+        TLoaders.warningSnackBar(title: 'Accept Privacy Policy', message: 'In order to create account, you must have to read and accept the Privacy Policy & Terms Of Use');
         return;
       }
     } catch (e) {
