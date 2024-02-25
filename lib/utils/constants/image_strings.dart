@@ -18,6 +18,10 @@ class TImages {
   static const String staticSuccessIllustrtion2 = "assets/images/onBoarding/onBoarding2.gif";
   static const String staticSuccessIllustrtion3 = "assets/images/onBoarding/onBoarding3.gif";
 
+
+  // ----------- Lottie Animation --------- //
+  static const String successfullyReisteredAnimation = "assets/images/animations/successAnimation.mp4";
+
    // ----- CategoryIcons ------- //
   static const String animalIcon = "assets/icons/categories/animal.png";
   static const String animationIcon = "assets/icons/categories/animations.png";
