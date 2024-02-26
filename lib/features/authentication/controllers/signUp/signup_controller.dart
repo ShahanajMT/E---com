@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tstore/data/repositories/authentication/authentication_repo.dart';
@@ -83,7 +82,7 @@ class SignupController extends GetxController {
 
       //! Move to verify email screen.
 
-      Get.to(() => const VerifyEmailScreen());
+      Get.to(() =>  VerifyEmailScreen(email: email.text.trim(),));
     } catch (e) {
       //! show Some Generic error to the user.
       TLoaders.errorSnackBar(title: 'on Snap', message: e.toString());

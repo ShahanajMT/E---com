@@ -1,10 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 import '../../../features/authentication/models/user_models.dart';
-import '../../../utils/exceptions/firebaseAuth_exception.dart';
 import '../../../utils/exceptions/firebase_exception.dart';
 import '../../../utils/exceptions/format_exception.dart';
 import '../../../utils/exceptions/platfoem_exception.dart';
