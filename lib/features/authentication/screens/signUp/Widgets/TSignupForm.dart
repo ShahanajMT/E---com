@@ -83,6 +83,7 @@ class TSignupForm extends StatelessWidget {
           //! phoneNo
 
           TextFormField(
+            keyboardType: TextInputType.number,
             controller: controller.phoneNumber,
             validator: (value) => TValidator.validatePhoneNumber(value),
             expands: false,
