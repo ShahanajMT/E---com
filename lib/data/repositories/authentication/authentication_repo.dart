@@ -1,8 +1,11 @@
+
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:tstore/features/authentication/screens/login/loginPage.dart';
 import 'package:tstore/features/authentication/screens/onBoarding/onBoarding_page.dart';
 import 'package:tstore/features/authentication/screens/signUp/verifyEmail.dart';
@@ -54,6 +57,24 @@ class AuthenticationRepository extends GetxController {
   //! -------- Email Password and SignUp --------- !//
   //[Email Authentication] -> signIn
 
+  Future<UserCredential> loginWithEmailAndPassword(
+      String email, String password) async {
+    try {
+      return await _auth.signInWithEmailAndPassword(
+          email: email, password: password);
+    } on FirebaseAuthException catch (e) {
+      throw TFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw TFormatException();
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong. Please try again';
+    }
+  }
+
   //[Email Authentication] -> Register
   Future<UserCredential> registerWithEmailAndPassword(
       String email, String password) async {
@@ -97,6 +118,31 @@ class AuthenticationRepository extends GetxController {
   //! ------------------------ Social Media SignIn ------------------------- !//
 
   //[Google Authentication] -> Google
+   Future<UserCredential> signInWithGoogle() async {
+    try {
+      // Trigger the authentucation flow
+      final GoogleSignInAccount? userAccount = await GoogleSignIn().signIn();
+
+      // Obtain the auth details from the req
+      final GoogleSignInAuthentication? googleAuth = await userAccount?.authentication;
+
+      // create a new credential
+      final credentials = GoogleAuthProvider.credential(accessToken: googleAuth?.accessToken, idToken: googleAuth?.idToken);
+
+      // once signed in, return the userCredential
+      return await _auth.signInWithCredential(credentials);
+    } on FirebaseAuthException catch (e) {
+      throw TFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw TFormatException();
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong. Please try again';
+    }
+  }
 
   //[FB Authentication] -> Facebook
 
@@ -104,7 +150,9 @@ class AuthenticationRepository extends GetxController {
   //[logoutUser] -> valid for any authentication
   Future<void> logOut() async {
     try {
+      await GoogleSignIn().signOut();
       await FirebaseAuth.instance.signOut();
+
       Get.offAll(() => const LogInPage());
     } on FirebaseAuthException catch (e) {
       throw TFirebaseAuthException(e.code).message;
@@ -118,5 +166,5 @@ class AuthenticationRepository extends GetxController {
       throw 'Something went wrong. Please try again';
     }
   }
-  //[Delete User] -> remove user auth and firebase account
+  //[Delete User] -> remove user auth and firebase account  
 }

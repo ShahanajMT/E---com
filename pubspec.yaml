@@ -11,22 +11,23 @@ environment:
 # ------- PACKAGES ------- #
 dependencies:
   carousel_slider: ^4.2.1
-  cloud_firestore: 
+  cloud_firestore: null
   connectivity_plus: ^5.0.2
   cupertino_icons: ^1.0.2
-  firebase_auth: 
-  firebase_core: 
+  firebase_auth: null
+  firebase_core: null
   flutter:
     sdk: flutter
-  flutter_native_splash: 
+  flutter_native_splash: null
   flutter_rating_bar: ^4.0.1
-  get: 
+  get: null
   get_storage: ^2.1.1
-  http: 
-  iconsax: 
+  google_sign_in:
+  http: null
+  iconsax: null
   intl: ^0.19.0
   logger: ^2.0.2+1
-  lottie: 
+  lottie: null
   readmore: ^2.2.0
   smooth_page_indicator: ^1.1.0
   url_launcher: ^6.2.4
