@@ -1,5 +1,9 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:tstore/features/authentication/controllers/forgetPassword/forget_passwordController.dart';
+import 'package:tstore/features/authentication/screens/login/loginPage.dart';
+
 import 'package:tstore/utils/constants/image_strings.dart';
 import 'package:tstore/utils/constants/sizes.dart';
 import 'package:tstore/utils/constants/text_strings.dart';
@@ -7,7 +11,12 @@ import 'package:tstore/utils/constants/text_strings.dart';
 import '../../../../utils/helpers/helper_fn.dart';
 
 class ResetPassword extends StatelessWidget {
-  const ResetPassword({super.key});
+  const ResetPassword({
+    Key? key,
+    required this.email,
+  }) : super(key: key);
+
+  final String email;
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +39,14 @@ class ResetPassword extends StatelessWidget {
                   width: THelperFunction.screenWidth() * 0.7),
               const SizedBox(height: TSizes.spaceBwSections),
 
-              // ! Titlel and SubTitle
+              // ! Email ,Titlel and SubTitle
+
+              Text(email,
+                  style: Theme.of(context).textTheme.bodyMedium,
+                  textAlign: TextAlign.center),
+
+              const SizedBox(height: TSizes.spaceBwItems),
+
               Text(TTexts.changePasswordTitle,
                   style: Theme.of(context).textTheme.headlineMedium,
                   textAlign: TextAlign.center),
@@ -45,7 +61,7 @@ class ResetPassword extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () => Get.offAll(()=> const LogInPage()),
                     style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10))),
@@ -56,7 +72,7 @@ class ResetPassword extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: TextButton(
-                    onPressed: () {}, child: const Text(TTexts.resendEmail)),
+                    onPressed: () => ForgetPasswordController.instance.resendPasswordResetEmail(email), child: const Text(TTexts.resendEmail)),
               ),
             ],
           ),
