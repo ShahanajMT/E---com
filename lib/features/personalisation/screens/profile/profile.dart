@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:tstore/common/styles/widgets/appBar/custom_appBar.dart';
 import 'package:tstore/common/styles/widgets/images/T_CircularImage.dart';
 import 'package:tstore/common/styles/widgets/texts/section_heading.dart';
+import 'package:tstore/common/widgets/change_name.dart';
 import 'package:tstore/features/personalisation/controllers/user_controller.dart';
 import 'package:tstore/features/personalisation/screens/profile/Widgets/TProfileMenu.dart';
 import 'package:tstore/utils/constants/image_strings.dart';
@@ -53,7 +55,7 @@ class ProfileScreen extends StatelessWidget {
             const SizedBox(height: TSizes.spaceBwItems),
 
             TProfileMenu(title: 'Name', value: controller.user.value.email, onPressed: (){},),
-            TProfileMenu(title: 'Username', value: controller.user.value.userName, onPressed: (){},),
+            TProfileMenu(title: 'Username', value: controller.user.value.fullName, onPressed: () => Get.to(() => const Changename()),),
 
              const SizedBox(height: TSizes.spaceBwItems / 2),
             const Divider(),
