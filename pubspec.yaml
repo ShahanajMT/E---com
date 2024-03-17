@@ -22,13 +22,14 @@ dependencies:
   flutter_rating_bar: ^4.0.1
   get: null
   get_storage: ^2.1.1
-  google_sign_in:
+  google_sign_in: null
   http: null
   iconsax: null
   intl: ^0.19.0
   logger: ^2.0.2+1
   lottie: null
   readmore: ^2.2.0
+  shimmer: ^3.0.0
   smooth_page_indicator: ^1.1.0
   url_launcher: ^6.2.4
 

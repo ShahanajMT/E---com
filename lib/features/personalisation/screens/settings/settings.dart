@@ -7,6 +7,7 @@ import 'package:tstore/common/styles/widgets/listTile/TSettingsMenu.dart';
 import 'package:tstore/common/styles/widgets/texts/section_heading.dart';
 import 'package:tstore/features/authentication/screens/login/loginPage.dart';
 import 'package:tstore/features/personalisation/screens/address/address.dart';
+import 'package:tstore/features/personalisation/screens/profile/profile.dart';
 import 'package:tstore/features/shop/screens/order/order.dart';
 import 'package:tstore/utils/constants/colors.dart';
 import 'package:tstore/utils/constants/sizes.dart';
@@ -40,7 +41,8 @@ class SettingScreens extends StatelessWidget {
                 ),
 
                 // ---- User Profile Card
-                const TProfileTile(),
+                 TProfileTile(onPressed: () => Get.to(() => const ProfileScreen()),),
+                 const SizedBox(height: TSizes.spaceBwSections)
               ],
             ),
           ),
