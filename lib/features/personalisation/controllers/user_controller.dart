@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:tstore/data/repositories/authentication/authentication_repo.dart';
 import 'package:tstore/data/repositories/user/user_repo.dart';
 import 'package:tstore/features/authentication/models/user_models.dart';
@@ -79,26 +80,33 @@ class UserController extends GetxController {
   //! save UserRecord from any registration provider
   Future<void> saveUserRecord(UserCredential? userCredential) async {
     try {
-      if (userCredential != null) {
-        // convert name to First and Last name
-        final nameParts =
-            UserModel.nameParts(userCredential.user!.displayName ?? '');
-        final userName =
-            UserModel.generateUsername(userCredential.user!.displayName ?? '');
+      //! First update Rx user
+      await fetchUserRecord();
 
-        // map Data
-        final user = UserModel(
-          id: userCredential.user!.uid,
-          firstName: nameParts[0],
-          lastName: nameParts.length > 1 ? nameParts.sublist(1).join(' ') : '',
-          userName: userName,
-          email: userCredential.user!.email ?? '',
-          phoneNumber: userCredential.user!.phoneNumber ?? '',
-          profilePicture: userCredential.user!.photoURL ?? '',
-        );
+      //! if no record already stored
+      if (user.value.id.isEmpty) {
+        if (userCredential != null) {
+          // convert name to First and Last name
+          final nameParts =
+              UserModel.nameParts(userCredential.user!.displayName ?? '');
+          final userName = UserModel.generateUsername(
+              userCredential.user!.displayName ?? '');
 
-        // Save user data
-        await userRepository.saveUserRecord(user);
+          // map Data
+          final user = UserModel(
+            id: userCredential.user!.uid,
+            firstName: nameParts[0],
+            lastName:
+                nameParts.length > 1 ? nameParts.sublist(1).join(' ') : '',
+            userName: userName,
+            email: userCredential.user!.email ?? '',
+            phoneNumber: userCredential.user!.phoneNumber ?? '',
+            profilePicture: userCredential.user!.photoURL ?? '',
+          );
+
+          // Save user data
+          await userRepository.saveUserRecord(user);
+        }
       }
     } catch (e) {
       TLoaders.warningSnackBar(
@@ -115,7 +123,11 @@ class UserController extends GetxController {
       title: 'Delete Account',
       middleText: 'Are you sure! you want to delete your account permemently!',
       confirm: ElevatedButton(
-        style: ElevatedButton.styleFrom(backgroundColor: Colors.red, side: const BorderSide(color: Colors.redAccent), shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
+        style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.red,
+            side: const BorderSide(color: Colors.redAccent),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10))),
         onPressed: () async => deleteUserAccount(),
         child: const Padding(
           padding: EdgeInsets.symmetric(horizontal: TSizes.lg),
@@ -130,18 +142,18 @@ class UserController extends GetxController {
   }
 
   //! Delete User Account
-  void deleteUserAccount () async{
+  void deleteUserAccount() async {
     try {
       TFullScreenLoader.openLoadingDialog('Processing', TImages.apple_pay);
 
       //! first re_auth user
       final auth = AuthenticationRepository.instance;
-      final provider = auth.authUser!.providerData.map((e) => e.providerId).first;
+      final provider =
+          auth.authUser!.providerData.map((e) => e.providerId).first;
 
-      
       if (provider.isNotEmpty) {
         //! re verify auth email
-        if (provider == 'google.com')  {
+        if (provider == 'google.com') {
           await auth.signInWithGoogle();
           await auth.deleteAccount();
           TFullScreenLoader.stopLoading();
@@ -150,9 +162,6 @@ class UserController extends GetxController {
           TFullScreenLoader.stopLoading();
           Get.to(() => const ReAuthLoginForm());
         }
-
-          
-        
       }
     } catch (e) {
       TFullScreenLoader.stopLoading();
@@ -161,7 +170,7 @@ class UserController extends GetxController {
   }
 
   //! ReAuthenticate Email and Password
-  Future<void> reAuthenticateEmailAndPasswordUser () async {
+  Future<void> reAuthenticateEmailAndPasswordUser() async {
     try {
       TFullScreenLoader.openLoadingDialog('Processing', TImages.amazon_pay);
 
@@ -172,14 +181,39 @@ class UserController extends GetxController {
         return;
       }
 
-      //! 
-      await AuthenticationRepository.instance.reAuthenticateWithEmailAndPassword(verifyEmail.text.trim(), verifyPassword.text.trim());
+      //!
+      await AuthenticationRepository.instance
+          .reAuthenticateWithEmailAndPassword(
+              verifyEmail.text.trim(), verifyPassword.text.trim());
       await AuthenticationRepository.instance.deleteAccount();
       TFullScreenLoader.stopLoading();
       Get.offAll(() => const LogInPage());
     } catch (e) {
       TFullScreenLoader.stopLoading();
       TLoaders.warningSnackBar(title: 'Oh Snap!', message: e.toString());
+    }
+  }
+
+  //! upload User Profile Picture
+  uploadUserProfilePicture() async {
+    try {
+      final image = await ImagePicker().pickImage(source: ImageSource.gallery, imageQuality: 70, maxHeight: 512, maxWidth: 512);
+      if (image != null) {
+        //! upload image
+        final imageUrl = await userRepository.uploadImage('User/Images/Profile', image);
+
+        //! update user image record
+        Map<String, dynamic> json = {
+          'ProfilePicture' : imageUrl,
+        };
+
+        await userRepository.updateSingleFeild(json);
+
+        user.value.profilePicture = imageUrl;
+        TLoaders.successSnackBar(title: 'Congradulation', message: 'Your profile image has been updated');
+      }
+    } catch (e) {
+      TLoaders.errorSnackBar(title: 'Oh Snap!', message: 'Something went wrong $e');
     }
   }
 }

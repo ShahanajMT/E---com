@@ -10,12 +10,14 @@ environment:
 
 # ------- PACKAGES ------- #
 dependencies:
+  cached_network_image: 
   carousel_slider: ^4.2.1
   cloud_firestore: null
   connectivity_plus: ^5.0.2
   cupertino_icons: ^1.0.2
   firebase_auth: null
   firebase_core: null
+  firebase_storage: null
   flutter:
     sdk: flutter
   flutter_native_splash: null
@@ -25,6 +27,7 @@ dependencies:
   google_sign_in: null
   http: null
   iconsax: null
+  image_picker: null
   intl: ^0.19.0
   logger: ^2.0.2+1
   lottie: null

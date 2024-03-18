@@ -35,10 +35,15 @@ class ProfileScreen extends StatelessWidget {
               width: double.infinity,
               child: Column(
                 children: [
-                  const TCircularImage(
-                      image: TImages.user, height: 80, width: 80),
+                  Obx(() {
+                    final networkImage = controller.user.value.profilePicture;
+                    final image = networkImage.isEmpty ? networkImage : TImages.user;
+
+                    return TCircularImage(
+                        image: image, height: 80, width: 80 , isNetworkImage: networkImage.isEmpty,);
+                  }),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () => controller.uploadUserProfilePicture(),
                     child: const Text('Change profile picture'),
                   ),
                 ],
@@ -49,15 +54,23 @@ class ProfileScreen extends StatelessWidget {
             const Divider(),
             const SizedBox(height: TSizes.spaceBwItems),
 
-             // --- Heading to Profile Info
+            // --- Heading to Profile Info
             const TSectionHeading(
                 title: 'Profile Information', showActionButton: false),
             const SizedBox(height: TSizes.spaceBwItems),
 
-            TProfileMenu(title: 'Name', value: controller.user.value.email, onPressed: (){},),
-            TProfileMenu(title: 'Username', value: controller.user.value.fullName, onPressed: () => Get.to(() => const Changename()),),
+            TProfileMenu(
+              title: 'Name',
+              value: controller.user.value.email,
+              onPressed: () {},
+            ),
+            TProfileMenu(
+              title: 'Username',
+              value: controller.user.value.fullName,
+              onPressed: () => Get.to(() => const Changename()),
+            ),
 
-             const SizedBox(height: TSizes.spaceBwItems / 2),
+            const SizedBox(height: TSizes.spaceBwItems / 2),
             const Divider(),
             const SizedBox(height: TSizes.spaceBwItems),
             // --- Heading to Personal Info
@@ -65,21 +78,49 @@ class ProfileScreen extends StatelessWidget {
                 title: 'Personal Information', showActionButton: false),
             const SizedBox(height: TSizes.spaceBwItems),
 
-            TProfileMenu(title: 'UserID', value: controller.user.value.id, onPressed: (){}, icon: Iconsax.copy,),
-            TProfileMenu(title: 'Email', value: controller.user.value.email, onPressed: (){},),
-            TProfileMenu(title: 'Phone No', value: controller.user.value.phoneNumber, onPressed: (){},),
-            TProfileMenu(title: 'Gender', value: 'Male', onPressed: (){},),
-            TProfileMenu(title: 'Date Of Birth', value: '17 - 09 - 2000', onPressed: (){},),
+            TProfileMenu(
+              title: 'UserID',
+              value: controller.user.value.id,
+              onPressed: () {},
+              icon: Iconsax.copy,
+            ),
+            TProfileMenu(
+              title: 'Email',
+              value: controller.user.value.email,
+              onPressed: () {},
+            ),
+            TProfileMenu(
+              title: 'Phone No',
+              value: controller.user.value.phoneNumber,
+              onPressed: () {},
+            ),
+            TProfileMenu(
+              title: 'Gender',
+              value: 'Male',
+              onPressed: () {},
+            ),
+            TProfileMenu(
+              title: 'Date Of Birth',
+              value: '17 - 09 - 2000',
+              onPressed: () {},
+            ),
 
             const Divider(),
             const SizedBox(height: TSizes.spaceBwItems),
-            Center(child: TextButton(onPressed: () => controller.deleteAccountWarningPopUp(), child: Text('Close Account', style: Theme.of(context).textTheme.bodyLarge!.apply(color: Colors.red),)),)
+            Center(
+              child: TextButton(
+                  onPressed: () => controller.deleteAccountWarningPopUp(),
+                  child: Text(
+                    'Close Account',
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyLarge!
+                        .apply(color: Colors.red),
+                  )),
+            )
           ],
-          
         ),
       )),
     );
   }
 }
-
-
