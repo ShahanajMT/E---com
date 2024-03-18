@@ -4,6 +4,7 @@ import 'package:iconsax/iconsax.dart';
 import 'package:tstore/common/styles/widgets/appBar/custom_appBar.dart';
 import 'package:tstore/common/styles/widgets/images/T_CircularImage.dart';
 import 'package:tstore/common/styles/widgets/texts/section_heading.dart';
+import 'package:tstore/common/widgets/TShimmer_effect.dart';
 import 'package:tstore/common/widgets/change_name.dart';
 import 'package:tstore/features/personalisation/controllers/user_controller.dart';
 import 'package:tstore/features/personalisation/screens/profile/Widgets/TProfileMenu.dart';
@@ -39,8 +40,8 @@ class ProfileScreen extends StatelessWidget {
                     final networkImage = controller.user.value.profilePicture;
                     final image = networkImage.isEmpty ? networkImage : TImages.user;
 
-                    return TCircularImage(
-                        image: image, height: 80, width: 80 , isNetworkImage: networkImage.isEmpty,);
+                    return controller.imageUploading.value  ? const TShimmerEffect(width: 80, height: 80, radius: 80,) : TCircularImage(
+                        image: image, height: 80, width: 80 , isNetworkImage: networkImage.isEmpty,) ;
                   }),
                   TextButton(
                     onPressed: () => controller.uploadUserProfilePicture(),

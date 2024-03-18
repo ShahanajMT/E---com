@@ -19,6 +19,7 @@ class UserController extends GetxController {
   final profileLoading = false.obs;
   Rx<UserModel> user = UserModel.empty().obs;
   final hidePassword = false.obs;
+  final imageUploading = false.obs;
   final verifyEmail = TextEditingController();
   final verifyPassword = TextEditingController();
   GlobalKey<FormState> reAuthFormKey = GlobalKey<FormState>();
@@ -199,6 +200,7 @@ class UserController extends GetxController {
     try {
       final image = await ImagePicker().pickImage(source: ImageSource.gallery, imageQuality: 70, maxHeight: 512, maxWidth: 512);
       if (image != null) {
+        imageUploading.value = true;
         //! upload image
         final imageUrl = await userRepository.uploadImage('User/Images/Profile', image);
 
@@ -210,10 +212,13 @@ class UserController extends GetxController {
         await userRepository.updateSingleFeild(json);
 
         user.value.profilePicture = imageUrl;
+        user.refresh();
         TLoaders.successSnackBar(title: 'Congradulation', message: 'Your profile image has been updated');
       }
     } catch (e) {
       TLoaders.errorSnackBar(title: 'Oh Snap!', message: 'Something went wrong $e');
+    } finally {
+      imageUploading.value = false;
     }
   }
 }
