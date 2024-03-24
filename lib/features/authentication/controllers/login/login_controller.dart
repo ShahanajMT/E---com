@@ -81,35 +81,65 @@ class LogInController extends GetxController {
   }
 
   //----- Google SignIn ---------//
+  // Future<void> googleSignIn() async {
+  //   try {
+  //     // Start loading 
+  //     TFullScreenLoader.openLoadingDialog('Logging in you', TImages.amazon_pay);
+
+  //     // check Internet Connectivity
+  //     final isConnected = await NetworkManager.inastance.isConnected();
+  //     if (!isConnected) {
+  //       TFullScreenLoader.stopLoading();
+  //       return;
+  //     }
+
+  //     // Google Authentication
+  //     final  userCredential = AuthenticationRepository.instance.signInWithGoogle();
+
+  //     // save User Records
+  //     await userController.saveUserRecord(userCredential as UserCredential?);
+
+  //     // Remove Loader
+  //     TFullScreenLoader.stopLoading();
+
+  //     // Redirect
+  //     AuthenticationRepository.instance.screenRedirect();
+
+
+  //   } catch (e) {
+  //     // Remove Loader
+  //     TFullScreenLoader.stopLoading();
+  //     TLoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
+  //   }
+  // }
+
   Future<void> googleSignIn() async {
-    try {
-      // Start loading 
-      TFullScreenLoader.openLoadingDialog('Logging in you', TImages.amazon_pay);
+  try {
+    // Start loading 
+    TFullScreenLoader.openLoadingDialog('Logging in you', TImages.amazon_pay);
 
-      // check Internet Connectivity
-      final isConnected = await NetworkManager.inastance.isConnected();
-      if (!isConnected) {
-        TFullScreenLoader.stopLoading();
-        return;
-      }
-
-      // Google Authentication
-      final  userCredential = AuthenticationRepository.instance.signInWithGoogle();
-
-      // save User Records
-      await userController.saveUserRecord(userCredential as UserCredential?);
-
-      // Remove Loader
+    // Check Internet Connectivity
+    final isConnected = await NetworkManager.inastance.isConnected();
+    if (!isConnected) {
       TFullScreenLoader.stopLoading();
-
-      // Redirect
-      AuthenticationRepository.instance.screenRedirect();
-
-
-    } catch (e) {
-      // Remove Loader
-      TFullScreenLoader.stopLoading();
-      TLoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
+      return;
     }
+
+    // Google Authentication
+    final UserCredential userCredential = await AuthenticationRepository.instance.signInWithGoogle();
+
+    // Save User Records
+    await userController.saveUserRecord(userCredential);
+
+    // Remove Loader
+    TFullScreenLoader.stopLoading();
+
+    // Redirect
+    AuthenticationRepository.instance.screenRedirect();
+  } catch (e) {
+    // Remove Loader
+    TFullScreenLoader.stopLoading();
+    TLoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
   }
+}
 }
