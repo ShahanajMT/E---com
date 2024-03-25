@@ -48,7 +48,7 @@ class ReAuthLoginForm extends StatelessWidget {
                               !controller.hidePassword.value, 
                           icon: const Icon(Iconsax.eye_slash),
                         ),
-                        labelText: TTexts.email),
+                        labelText: TTexts.password),
                   ),
                 ),
 
