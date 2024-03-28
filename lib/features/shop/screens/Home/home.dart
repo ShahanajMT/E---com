@@ -5,9 +5,7 @@ import 'package:get/get.dart';
 import 'package:tstore/common/styles/widgets/products/product_cart/TProductCart_vertical.dart';
 import 'package:tstore/features/shop/screens/allProducts/all_products.dart';
 
-import 'package:tstore/utils/constants/image_strings.dart';
 import 'package:tstore/utils/constants/sizes.dart';
-import 'package:tstore/utils/constants/text_strings.dart';
 
 import '../../../../common/styles/widgets/custome_shapes/containers/TPrimaryHeaderContainer.dart';
 import '../../../../common/styles/widgets/custome_shapes/containers/search_container.dart';
@@ -97,11 +95,11 @@ class HomeScreen extends StatelessWidget {
                   children: [
                     // ---- CarouselSlider ---- //
                     const TPramoSlider(
-                      banners: [
-                        TImages.promoBanner1,
-                        TImages.promoBanner2,
-                        TImages.promoBanner3
-                      ],
+                      // banners: [
+                      //   TImages.promoBanner1,
+                      //   TImages.promoBanner2,
+                      //   TImages.promoBanner3
+                      // ],
                     ),
                     const SizedBox(height: TSizes.spaceBwSections),
 

@@ -1,5 +1,4 @@
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:tstore/data/repositories/categories/category_repository.dart';
 import 'package:tstore/features/shop/models/category_model.dart';
 import 'package:tstore/utils/snakBars/TLoders.dart';
