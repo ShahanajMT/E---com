@@ -41,7 +41,7 @@ class TPramoSlider extends StatelessWidget {
                   .map((banner) => TRoundImage(
                         imageUrl: banner.imageUrl,
                         isNetworkImage: true,
-                        onPresesd: () => Get.toNamed(banner.targetScreen),
+                        onPresesd: () => Get.toNamed(banner.targetScreen), //! ....
                       ))
                   .toList(),
               options: CarouselOptions(
