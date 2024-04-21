@@ -78,7 +78,8 @@ class ProductModel {
   }
 
   // Map json oriented document snapshot from FB to UserModel
-  factory ProductModel.fromJson(DocumentSnapshot<Map<String, dynamic>> document) {
+  factory ProductModel.fromSnapshot(DocumentSnapshot<Map<String, dynamic>> document) {
+    if (document.data() == null) return ProductModel.empty();
    final data = document.data()!;
    return ProductModel(
     id: document.id,

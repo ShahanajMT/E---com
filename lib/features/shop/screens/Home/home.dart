@@ -12,6 +12,7 @@ import '../../../../common/styles/widgets/custome_shapes/containers/search_conta
 
 import '../../../../common/styles/widgets/layout/TGridlayout.dart';
 import '../../../../common/styles/widgets/texts/section_heading.dart';
+import '../../controllers/product_controller.dart';
 import 'widgets/THomeAppBar.dart';
 import 'widgets/THomeCategories.dart';
 import 'widgets/TPramoSlider.dart';
@@ -21,6 +22,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controllers = Get.put(ProductController());
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
@@ -108,11 +110,12 @@ class HomeScreen extends StatelessWidget {
                     const SizedBox(height: TSizes.spaceBwItems),
 
                     // ---- Popular Products ----- //
-
+                    //!------
                     TGridLayout(
                       itemCount: 6,
                       itemBuilder: (_, index) => const TProductCardVertical(),
                     ),
+                    //!------
                   ],
                 ),
               ),
