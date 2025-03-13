@@ -32,7 +32,7 @@ class SignupController extends GetxController {
           'We are processing your interface ......', TImages.darkAppLogo);
 
       //! check Inetwork connetivity
-      final isConnected = await NetworkManager.inastance.isConnected();
+      final isConnected = await NetworkManager.instance.isConnected();
       if (!isConnected) {
         //TFullScreenLoader.stopLoading();
         return;
