@@ -42,9 +42,12 @@ class SettingScreens extends StatelessWidget {
 
                 // ---- User Profile Card
                  TProfileTile(onPressed: () => Get.to(() => const ProfileScreen()),),
-                 const SizedBox(height: TSizes.spaceBwSections)
+                 const SizedBox(height: TSizes.spaceBwSections),
+                 Text("Hai"),
               ],
+            
             ),
+            
           ),
           //! ---- Body ----!//
             Padding(

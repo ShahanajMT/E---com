@@ -15,7 +15,7 @@ class TermsAndCondition extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final dark = THelperFunction.isDarkMode(context);
-    final controller = SignupController.instaance;
+    final controller = SignupController.instance;
     return Row(
       children: [
         SizedBox(

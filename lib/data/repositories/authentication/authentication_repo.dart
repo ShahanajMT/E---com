@@ -34,7 +34,7 @@ class AuthenticationRepository extends GetxController {
     screenRedirect();
   }
 
-  //! fn to show relavent
+  //! fn to show relavent screen
   screenRedirect() async {
     final user = _auth.currentUser;
 
@@ -186,7 +186,9 @@ class AuthenticationRepository extends GetxController {
 
   //[FB Authentication] -> Facebook
 
-  //! -------------------------- SignOut ---------------- !//
+  //! -------------------------- ./end Federate identity & social sign-in ---------------- !//
+
+
   //[logoutUser] -> valid for any authentication
   Future<void> logOut() async {
     try {

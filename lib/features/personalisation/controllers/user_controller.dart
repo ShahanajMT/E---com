@@ -17,7 +17,7 @@ class UserController extends GetxController {
   static UserController get instance => Get.find();
 
   final profileLoading = false.obs;
-  Rx<UserModel> user = UserModel.empty().obs;
+   Rx<UserModel> user = UserModel.empty().obs;
   final hidePassword = false.obs;
   final imageUploading = false.obs;
   final verifyEmail = TextEditingController();
@@ -33,50 +33,19 @@ class UserController extends GetxController {
   }
 
   //! fetch userRecord
-  Future<void> fetchUserRecord() async {
+   Future<void> fetchUserRecord() async {
     try {
-      print('Fetching user details...');
       profileLoading.value = true;
       final user = await userRepository.fetchUserDetails();
-      print('User details fetched: $user');
-
-      // Update user observable with fetched user data
       this.user(user);
-      //this.user.value = user;
+      profileLoading.value = false;
     } catch (e) {
-      print('Error fetching user details: $e');
-      // Handle error appropriately, e.g., showing an error message
       user(UserModel.empty());
     } finally {
-      // Set profile loading state back to false
       profileLoading.value = false;
-      print('Profile loading state set to false...');
     }
-  }
+   }
 
-// Future<void> fetchUserRecord() async {
-//   try {
-//     print('Fetching user details...');
-//     profileLoading.value = true;
-//     final user = await userRepository.fetchUserDetails(); // Use userRepository instead of UserRepository.instance
-//     print('User details fetched: $user');
-
-//     // Update user observable with fetched user data
-//     if (user != null) {
-//       this.user.value = user;
-//     } else {
-//       throw Exception('User data is null');
-//     }
-//   } catch (e) {
-//     print('Error fetching user details: $e');
-//     // Handle error appropriately, e.g., showing an error message
-//     user(UserModel.empty());
-//   } finally {
-//     // Set profile loading state back to false
-//     profileLoading.value = false;
-//     print('Profile loading state set to false...');
-//   }
-// }
 
   //! save UserRecord from any registration provider
   Future<void> saveUserRecord(UserCredential? userCredential) async {
@@ -198,27 +167,46 @@ class UserController extends GetxController {
   //! upload User Profile Picture
   uploadUserProfilePicture() async {
     try {
-      final image = await ImagePicker().pickImage(source: ImageSource.gallery, imageQuality: 70, maxHeight: 512, maxWidth: 512);
+      final image = await ImagePicker().pickImage(
+          source: ImageSource.gallery,
+          imageQuality: 70,
+          maxHeight: 512,
+          maxWidth: 512);
       if (image != null) {
         imageUploading.value = true;
         //! upload image
-        final imageUrl = await userRepository.uploadImage('User/Images/Profile', image);
+        final imageUrl =
+            await userRepository.uploadImage('User/Images/Profile', image);
 
         //! update user image record
         Map<String, dynamic> json = {
-          'ProfilePicture' : imageUrl,
+          'ProfilePicture': imageUrl,
         };
 
         await userRepository.updateSingleFeild(json);
 
         user.value.profilePicture = imageUrl;
         user.refresh();
-        TLoaders.successSnackBar(title: 'Congradulation', message: 'Your profile image has been updated');
+        TLoaders.successSnackBar(
+            title: 'Congradulation',
+            message: 'Your profile image has been updated');
       }
     } catch (e) {
-      TLoaders.errorSnackBar(title: 'Oh Snap!', message: 'Something went wrong $e');
+      TLoaders.errorSnackBar(
+          title: 'Oh Snap!', message: 'Something went wrong $e');
     } finally {
       imageUploading.value = false;
     }
   }
 }
+
+
+
+
+
+
+
+
+
+
+

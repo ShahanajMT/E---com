@@ -10,8 +10,8 @@ environment:
 
 # ------- PACKAGES ------- #
 dependencies:
-  cached_network_image: 
-  carousel_slider: ^4.2.1
+  cached_network_image: ^3.4.1 
+  carousel_slider: ^5.0.0
   cloud_firestore: null
   connectivity_plus: ^5.0.2
   cupertino_icons: ^1.0.2
@@ -28,16 +28,16 @@ dependencies:
   http: null
   iconsax: null
   image_picker: null
-  intl: ^0.19.0
+  intl: ^0.20.2
   logger: ^2.0.2+1
   lottie: null
-  readmore: ^2.2.0
+  readmore: ^3.0.0
   shimmer: ^3.0.0
   smooth_page_indicator: ^1.1.0
   url_launcher: ^6.2.4
 
 dev_dependencies:
-  flutter_lints: ^2.0.0
+  flutter_lints: ^5.0.0
 
   flutter_test:
     sdk: flutter

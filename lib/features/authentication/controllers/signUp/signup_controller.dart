@@ -10,7 +10,7 @@ import 'package:tstore/utils/popups/full_screen_loader.dart';
 import 'package:tstore/utils/snakBars/TLoders.dart';
 
 class SignupController extends GetxController {
-  static SignupController get instaance => Get.find();
+  static SignupController get instance => Get.find();
 
   //? Variables
   final hidePassword = true.obs;

@@ -55,7 +55,8 @@ class HomeScreen extends StatelessWidget {
                           SizedBox(height: TSizes.spaceBwSections),
 
                           // ---- Categoreies ---- //
-                          THomeCategories(
+                          THomeCategories(),
+                          // THomeCategories(
                             // images: [
                             //   TImages.animalIcon,
                             //   TImages.animationIcon,
@@ -80,7 +81,7 @@ class HomeScreen extends StatelessWidget {
                             //   TTexts.sports,
                             //   TTexts.toys,
                             // ],
-                          ),
+                          // ),
 
                           // ---
                         ],

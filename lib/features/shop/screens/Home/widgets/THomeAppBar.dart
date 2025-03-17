@@ -37,6 +37,7 @@ class THomeAppBar extends StatelessWidget {
             }
             
             }),
+         // Obx(() =>  Text(controller.user.value.fullName, style: Theme.of(context).textTheme.headlineMedium!.apply(color: darkMode? TColors.white : TColors.black)))
         ],
       ),
       actions: [

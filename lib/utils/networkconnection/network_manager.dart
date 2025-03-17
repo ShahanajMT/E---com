@@ -10,19 +10,19 @@ class NetworkManager extends GetxController {
   static NetworkManager get inastance => Get.find();
 
   final Connectivity _connectivity = Connectivity();
+  // late StreamSubscription<List<ConnectivityResult>> _connectivitySubscription;
   late StreamSubscription<ConnectivityResult> _connectivitySubscription;
+
   final Rx<ConnectivityResult> _connectionStatus = ConnectivityResult.none.obs;
 
-  //? Initialize net
+   //? Initialize network
   @override
   void onInit() {
-    // TODO: implement onInit
     super.onInit();
-    _connectivitySubscription = _connectivity.onConnectivityChanged.listen(_updateConnetionStatue);
+    _connectivitySubscription = _connectivity.onConnectivityChanged.listen(_updateConnectionStatus);
   }
-
   //? up
-  Future<void> _updateConnetionStatue(ConnectivityResult result) async {
+  Future<void> _updateConnectionStatus(ConnectivityResult result) async {
     _connectionStatus.value = result;
     if (_connectionStatus.value == ConnectivityResult.none) {
       TLoaders.customToast(message: 'No Internet Connection');
